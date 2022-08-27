@@ -1,0 +1,68 @@
+ <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-warning  ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="#">The Shoe Box</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+	          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catagories</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	{{#each categories}}
+							<a class="dropdown-item" href="/viewproducts/{{this.categoryname}}">{{this.categoryname}}</a>
+							{{/each}}
+                            <a class="dropdown-item" href="/viewproducts">All products</a>
+              </div>
+            </li>
+	          <li class="nav-item"><a href="/wishlist" class="nav-link">Wishlist</a></li>
+	          <li class="nav-item"><a href="/cartpage" class="nav-link">My cart</a></li>
+	          <li class="nav-item"><a href="/orders" class="nav-link">My Orders</a></li>
+	        
+               {{#if session.userloggedIn}}
+			  <li class="nav-item"><a href="/profile" class=" nav-link">{{session.user.name}}</a></li> 
+			   <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li> 
+			   {{else}}
+			    <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+				 <li class="nav-item"><a href="/signup" class="nav-link">Register</a></li>
+			   
+			   {{/if}}
+	        </ul>
+			
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+<section class=" vh-100 mt-5" >
+    <div class="container ">
+        <div class="row ">
+            <div class="col-lg-12  mb-sm-5">
+                <div class="card card-style1 border-0">
+                    <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 mb-4 mb-lg-0">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="...">
+                            </div>
+                            <div class="col-lg-6 px-xl-10">
+                                <div class="align-items-center">
+                                    <h4>Your Profile</h4>
+                                </div>
+                                <ul class="list-unstyled mb-1-9 mt-5">
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Name:</span>{{userData.name}}</li>
+                                    {{!-- <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Experience:</span> 10 Years</li> --}}
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email:</span>{{userData.email}}</li>
+                                    {{!-- <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Website:</span> www.example.com</li> --}}
+                                    <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span>{{userData.mobile}}</li>
+                                </ul>
+                                <a type="button"  href="/update-profile" class="btn h4 bg-warning">Edit Profile</a>
+                                <button type="button"  href="/myorders" class="btn h4 bg-warning ">Orders</button>
+                                <a type="button" href="/viewaddress" class="btn h4  bg-warning  ">Address</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </section>

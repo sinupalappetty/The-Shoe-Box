@@ -1,0 +1,314 @@
+<nav class="navbar navbar-expand-lg  ftco_navbar bg-warning  ftco-navbar-light" id="ftco-navbar">
+	<div class="container">
+		<a class="navbar-brand" href="index.html">The Shoe Box</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+			aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="oi oi-menu"></span> Menu
+		</button>
+
+		<div class="collapse navbar-collapse" id="ftco-nav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">Catagories</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown04">
+						{{#each categories}}
+						<a class="dropdown-item" href="/viewproducts/{{this.categoryname}}">{{this.categoryname}}</a>
+						{{/each}}
+						<a class="dropdown-item" href="/viewproducts">All products</a>
+
+					</div>
+				</li>
+
+				{{#if session.userloggedIn}}
+				<li class="nav-item"><a href="/wishlist" class="nav-link">Wishlist</a></li>
+				<li class="nav-item"><a href="/cartpage" class="nav-link">My cart</a></li>
+
+				<li class="nav-item"><a href="/orders" class="nav-link">My Orders</a></li>
+				<li class="nav-item"><a href="/profile" class=" nav-link">{{session.user.name}}</a></li>
+				<li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+				{{else}}
+				<li class="nav-item"><a href="/login" class="nav-link">Wishlist</a></li>
+				<li class="nav-item"><a href="/login" class="nav-link">My cart</a></li>
+				<li class="nav-item"><a href="/login" class="nav-link">My Orders</a></li>
+				<li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+				<li class="nav-item"><a href="/signup" class="nav-link">Register</a></li>
+
+				{{/if}}
+			</ul>
+
+		</div>
+	</div>
+</nav>
+
+<section>
+	<div class="container ">
+		<div class="row mt-5 pt-3 d-flex">
+			<div class="col-md-4 d-flex">
+				<div class="cart-detail bg-light p-3 p-md-4 mb-5 rounded-3 border">
+					<h3 class="billing-heading mb-4">Deliver to this Address</h3>
+					<form>
+					{{#each address}}
+					<div class="form-group">
+						<div class="col-md-12">
+							<div class="radio">
+								<hr>
+								<label><input type="radio" name="address"  value="{{this._id}}" class="mr-2"  {{#if
+                                                @first}}checked{{/if}}>
+									{{this.firstname}} {{this.lastname}}<br>
+									{{this.address1}},{{this.address2}},
+										{{this.district}},{{this.state}},{{this.country}} -{{this.pinCode}},mobile: {{this.number}}
+									{{!-- <p>Mobile : {{this.number}}</p> --}}
+								</label>
+							</div>
+						</div>
+					</div>
+					{{/each}}
+
+               </form>
+					<p><a href="/addaddress" class="btn btn-primary py-3 px-4">Add New Address</a></p>
+				</div>
+			</div>
+
+
+
+{{!-- 
+		</div>
+	</div> <!-- .col-md-8 -->
+	<div class="container ">
+		<div class="row mt-5 pt-3 d-flex mb-5"> --}}
+
+			<div class="col-md-4 d-flex">
+				<div class="cart-detail cart-total bg-light p-3 p-md-4 mb-5 rounded border">
+					<h3 class="billing-heading mb-4">Cart Total</h3>
+					<p class="d-flex">
+						<span>Subtotal</span>
+						Rs.<span id="subtotal">{{subTotal cart.cartItems}}</span>
+					</p>
+					<p class="d-flex">
+							<span>Coupon Discount</span>
+							  {{#if response.discount}}
+							Rs.<span id="couponDiscount">-{{response.discount}}</span>
+							{{else}}
+							Rs.<span id="couponDiscount">0</span>
+							{{/if}}
+						</p>
+					<p class="d-flex">
+						<span>Delivery</span>
+						Rs.<span id="shipping">{{response.shipping}}</span>
+					</p>
+
+					<hr>
+					<p class="d-flex total-price">
+						<span>Total</span>
+						Rs.<span id="grandTotal">{{response.grandTotal}}</span>
+					</p>
+				</div>
+			</div>
+			<div class="col-md-4 d-flex">
+				<div class="cart-detail bg-light p-3 p-md-4 mb-5 rounded border">
+					<h3 class="billing-heading mb-4">Payment Method</h3>
+					
+					<div class="form-group">
+						<div class="col-md-12">
+							<div class="radio">
+								<label><input type="radio" id="online"  name="payment" value="online" class="mr-2">
+									Online Payment</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-12">
+							<div class="radio">
+								<label><input type="radio" id="COD"  value="COD" name="payment" class="mr-2" checked>
+									Cash On Delivery</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-12">
+							<div class="checkbox">
+								<label><input type="checkbox" value="" class="mr-2"> I have
+									read and accept the terms and conditions</label>
+							</div>
+						</div>
+					</div>
+					<p><a onclick="placeOrder()" class="btn btn-primary py-3 px-4">Place an order</a></p>
+				</div>
+			</div>
+		</div>
+	{{!-- </div>
+	</div>
+	</div> --}}
+</section> <!-- .section -->
+
+
+<footer class="ftco-footer ftco-section">
+	<div class="container">
+		<div class="row">
+			<div class="mouse">
+				<a href="#" class="mouse-icon">
+					<div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+				</a>
+			</div>
+		</div>
+		<div class="row mb-5">
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4">
+					<h2 class="ftco-heading-2">Minishop</h2>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and
+						Consonantia.</p>
+					<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+						<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+						<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
+						</li>
+						<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4 ml-md-5">
+					<h2 class="ftco-heading-2">Menu</h2>
+					<ul class="list-unstyled">
+						<li><a href="#" class="py-2 d-block">Shop</a></li>
+						<li><a href="#" class="py-2 d-block">About</a></li>
+						<li><a href="#" class="py-2 d-block">Journal</a></li>
+						<li><a href="#" class="py-2 d-block">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="ftco-footer-widget mb-4">
+					<h2 class="ftco-heading-2">Help</h2>
+					<div class="d-flex">
+						<ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+							<li><a href="#" class="py-2 d-block">Shipping Information</a></li>
+							<li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
+							<li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
+							<li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+						</ul>
+						<ul class="list-unstyled">
+							<li><a href="#" class="py-2 d-block">FAQs</a></li>
+							<li><a href="#" class="py-2 d-block">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4">
+					<h2 class="ftco-heading-2">Have a Questions?</h2>
+					<div class="block-23 mb-3">
+						<ul>
+							<li><span class="icon icon-map-marker"></span><span class="text">203 Fake
+									St. Mountain View, San Francisco, California, USA</span></li>
+							<li><a href="#"><span class="icon icon-phone"></span><span class="text">+2
+										392 3929 210</span></a></li>
+							<li><a href="#"><span class="icon icon-envelope"></span><span
+										class="text">info@yourdomain.com</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 text-center">
+
+				<p>
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					Copyright &copy;
+					<script>document.write(new Date().getFullYear());</script> All rights reserved |
+					This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a
+						href="https://colorlib.com" target="_blank">Colorlib</a>
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script>
+    const razorPayment = (data) => {
+		console.log(data.amount)
+        var options  = {
+            "key": "rzp_test_CgUrSiTRq0tele", // Enter the Key ID generated from the Dashboard
+            "amount": data.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "Acme Corp",
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": function (response) {
+                verifyPayment(response, data);
+            },
+            "prefill": {
+                "name": "Gaurav Kumar",
+                "email": "gaurav.kumar@example.com",
+                "contact": "9999999999"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.on('payment.failed', function (response) {
+            alert(response.error.code);
+             {{!-- alert(response.error.description);
+            alert(response.error.source);
+            alert(response.error.step);
+            alert(response.error.reason);
+            alert(response.error.metadata.order_id);
+            alert(response.error.metadata.payment_id); --}}
+            verifyPayment(response, data);
+        });
+        rzp1.open();
+
+    }
+
+    const placeOrder = async () => {
+        let paymentMethod = $('input[type="radio"][name="payment"]:checked').val()
+        let address = $('input[type="radio"][name="address"]:checked').val()
+        console.log(paymentMethod)
+		console.log(address._id)
+        try {
+            const res = await axios.post('/placeOrder', {
+                paymentMethod: paymentMethod,
+                address: address
+            }).then((e) => {
+                if (paymentMethod === "COD") {
+                    location.href = `/orderSuccess/${e.data.order._id}`;
+                } else {
+                    console.log(e.data.data)
+				 
+					
+                    razorPayment(e.data.data)
+                }
+
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    const verifyPayment = async (payment, order) => {
+        try {
+            const res = await axios.post('/verifyPayment', {
+                payment,
+                order
+            }).then((e) => {
+                if(e.data.status){
+                location.href = `/orderSuccess/${order.receipt}`;
+                }else{
+                    alert('oooooombie!!!');
+                }
+            })
+        } catch {
+
+        }
+    }
+
+</script>

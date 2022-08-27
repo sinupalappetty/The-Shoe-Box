@@ -1,0 +1,107 @@
+				<nav class="navbar navbar-expand-lg  ftco_navbar bg-warning  ftco-navbar-light" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="#">The Shoe Box</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">Catagories</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown04">
+							{{#each categories}}
+							<a class="dropdown-item" href="/viewproducts/{{this.categoryname}}">{{this.categoryname}}</a>
+							{{/each}}
+                            <a class="dropdown-item" href="/viewproducts">All products</a>
+
+						</div>
+					</li>
+
+					{{#if session.userloggedIn}}
+					<li class="nav-item"><a href="/wishlist" class="nav-link">Wishlist</a></li>
+					<li class="nav-item"><a href="/cartpage" class="nav-link">My cart</a></li>
+
+					<li class="nav-item"><a href="/orders" class="nav-link">My Orders</a></li>
+					<li class="nav-item"><a href="/profile" class=" nav-link">{{session.user.name}}</a></li>
+					<li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+					 {{else}} 
+					<li class="nav-item"><a href="/login" class="nav-link">Wishlist</a></li>
+					<li class="nav-item"><a href="/login" class="nav-link">My cart</a></li>
+					<li class="nav-item"><a href="/login" class="nav-link">My Orders</a></li>
+					<li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+					<li class="nav-item"><a href="/signup" class="nav-link">Register</a></li>
+
+					{{/if}}
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+	<!-- END nav --> 
+
+    <section id="home-section" class="hero">
+<div class="container mt-5">
+			<div class="row">
+				{{#each products}}
+				<div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
+					<div class="product d-flex flex-column">
+						<a href="#" class="img-prod"><img class="img-fluid" style="height:350px"
+								src="/images/productimg/{{productimage.[0]}}" alt="Colorlib Template">
+							<div class="overlay"></div>
+						</a>
+						<div class="text py-3 pb-4 px-3">
+							<div class="d-flex">
+							
+								<div class="cat">
+									<span>{{this.productcategory}}</span>
+								</div>
+								<div class="rating">
+									<p class="text-right mb-0">
+										<a href="#"><span class="ion-ios-star-outline"></span></a>
+										<a href="#"><span class="ion-ios-star-outline"></span></a>
+										<a href="#"><span class="ion-ios-star-outline"></span></a>
+										<a href="#"><span class="ion-ios-star-outline"></span></a>
+										<a href="#"><span class="ion-ios-star-outline"></span></a>
+									</p>
+								</div>
+							</div>
+							<h3><a href="#">{{this.productname}}</a></h3> 
+							{{!-- <div class="pricing d-flex">
+								<p class="price"><span>RS {{this.productprice}}</span></p>
+								
+							</div> --}}
+							<div class="d-flex">
+								<div class="pricing d-flex">
+									<p class="price">RS.<span>{{this.productprice}}</span></p>
+								</div>
+								<div class="ml-auto">
+                        <button onclick="addToWishList('{{this._id}}')" class="btn border mr-1">
+                            <i class="fas fa-heart" id="wishListIcon" style="color:rgb(243, 176, 21)"></i>
+                        </button>
+                    </div>
+							</div>
+							<p class="bottom-area d-flex px-2">
+								<a onclick="addToCart('{{this._id}}')" class=" add-to-cart text-center py-2 mr-1 "><span>Add to
+										cart <i class="ion-ios-add ml-1"></i></span></a>
+				
+								<a href="/view-singleproduct/{{this._id}}" class="buy-now text-center py-2">View
+									Details<span><i class="ion-ios-cart ml-1"></i></span></a>
+									
+							</p>
+							{{!-- <p><a onclick="addToWishlist('{{this._id}}')" class=" add-to-cart text-center py-2 mr-1 "><span>Add to
+										Wishlist <i class="ion-ios-add ml-1"></i></span></a>
+										</p> --}}
+						</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+
+
+
+    </section>

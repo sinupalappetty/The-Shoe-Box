@@ -1,0 +1,164 @@
+<nav class="navbar navbar-expand-lg  ftco_navbar bg-warning  ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">The Shoe Box</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+            aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Catagories</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        {{#each categories}}
+                        <a class="dropdown-item" href="/viewproducts/{{this.categoryname}}">{{this.categoryname}}</a>
+                        {{/each}}
+                        <a class="dropdown-item" href="/viewproducts">All products</a>
+
+                    </div>
+                </li>
+
+                {{#if session.userloggedIn}}
+                <li class="nav-item"><a href="/wishlist" class="nav-link">Wishlist</a></li>
+                <li class="nav-item"><a href="/cartpage" class="nav-link">My cart</a></li>
+
+                <li class="nav-item"><a href="/orders" class="nav-link">My Orders</a></li>
+                <li class="nav-item"><a href="/profile" class=" nav-link">{{session.user.name}}</a></li>
+                <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+                {{else}}
+                <li class="nav-item"><a href="/login" class="nav-link">Wishlist</a></li>
+                <li class="nav-item"><a href="/login" class="nav-link">My cart</a></li>
+                <li class="nav-item"><a href="/login" class="nav-link">My Orders</a></li>
+                <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="/signup" class="nav-link">Register</a></li>
+
+                {{/if}}
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<section>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10 ftco-animate">
+                    <form action="/address" id="addaddress" method="post" class="billing-form">
+                        <h3 class="mb-4 billing-heading">Billing Details</h3>
+                        <div class="row align-items-end">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" class="form-control" name="firstname" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastname">Last Name</label>
+                                    <input type="text" class="form-control" name="lastname" placeholder="">
+                                </div>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-md-12">
+                             
+                                        <label for="streetaddress">State</label>
+                                    <input type="text" class="form-control" name="state" placeholder="state">
+                                 
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="streetaddress">Address Line 1</label>
+                                    <input type="text" class="form-control" name="address1" placeholder="House name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="streetaddress">Address Line 2</label>
+                                    <input type="text" class="form-control" name="address2" placeholder="address 2">
+                                </div>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="towncity">District</label>
+                                    <input type="text" class="form-control" name="district" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="postcodezip">Pin code / ZIP *</label>
+                                    <input type="text" class="form-control" name="pinCode" placeholder="">
+                                </div>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <input type="text" class="form-control" name="country" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" class="form-control" name="number" placeholder="">
+                                </div>
+                            </div>
+                            
+                            <div class="w-100"></div>
+                            <div class="col-md-12">
+                                <div class="form-group mt-4">
+                                    <div class="">
+                                       
+                                        <label><input type="submit" name="submit"></label>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </form><!-- END -->
+    </section>
+
+
+    <script>
+
+  $(document).ready(function () {
+    $("#addaddress").validate({
+      rules: {
+         firstname: {
+          required: true,
+        
+        },
+         lastname: {
+          required: true,
+        
+        },
+        address1: {
+          required: true,
+          
+        },
+        address2: {
+          required: true,
+          
+        },
+        pinCode: {
+          required: true,
+          
+        },
+        state: {
+          required: true,
+          
+        },
+        number: {
+          required: true,
+         minlength: 10
+        }
+      }
+    })
+  })
+
+
+</script>

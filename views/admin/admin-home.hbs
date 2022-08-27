@@ -1,0 +1,345 @@
+<div class="container-xxl position-relative bg-white d-flex p-0">
+    {{!-- <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End --> --}}
+
+
+    <!-- Sidebar Start -->
+    <div class="sidebar pe-4 pb-3">
+        <nav class="navbar bg-light navbar-light">
+            <a href="/admin/adminhome" class="navbar-brand mx-4 mb-3">
+                <h3 class="text-primary">THE SHOE BOX</h3>
+            </a>
+            <div class="d-flex align-items-center ms-4 mb-4">
+                <div class="position-relative">
+                    <img class="rounded-circle" src="admin-assets/img/user.jpg" alt=""
+                        style="width: 40px; height: 40px;">
+                    <div
+                        class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
+                    </div>
+                </div>
+                <div class="ms-3">
+                    <h6 class="mb-0">Sinu P</h6>
+                    <span>Admin</span>
+                </div>
+            </div>
+            <div class="navbar-nav w-100">
+                <a href="/admin/adminhome" class="nav-item nav-link active"><i
+                        class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                        <a href="/admin/report" class=" nav-link "><i
+                        class="fa fa-tachometer-alt me-2"></i>Report</a>
+                <a href="/admin/view-user" class="nav-link "><i class="fa fa-th me-2"></i> All Users</a>
+
+                <a href="/admin/view-products" class="nav-link "><i class="fa fa-th me-2"></i> All Products</a>
+
+
+                <a href="/admin/view-category" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Categories</a>
+                <a href="/admin/view-banners" class="nav-item nav-link"><i class="fa fa-th me-2"></i>All Banners</a>
+                <a href="/admin/view-coupons" class="nav-item nav-link"><i class="fa fa-th me-2"></i>All Coupons</a>
+                <a href="/admin/view-orders" class="nav-item nav-link"><i class="fa fa-th me-2"></i>All Orders</a>
+
+              
+            </div>
+        </nav>
+    </div>
+    <!-- Sidebar End -->
+
+
+    <!-- Content Start -->
+    <div class="content">
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+            <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+            </a>
+            <a href="#" class="sidebar-toggler flex-shrink-0">
+                <i class="fa fa-bars"></i>
+            </a>
+
+            <div class="navbar-nav align-items-center ms-auto">
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <img class="rounded-circle me-lg-2" src="admin-assets/img/user.jpg" alt=""
+                            style="width: 40px; height: 40px;">
+                        <span class="d-none d-lg-inline-flex">Sinu P</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                        {{!-- <a href="#" class="dropdown-item">My Profile</a>
+                        <a href="#" class="dropdown-item">Settings</a> --}}
+                        <a href="/admin/logout" class="dropdown-item">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+
+        <!-- Sale & Revenue Start -->
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                        {{!-- <i class="fa fa-chart-line fa-3x text-primary"></i> --}}
+                        <i class="fa fa-users fa-3x text-primary"></i>
+                        <div class="ms-3">
+                            <p class="mb-2">Total Users</p>
+                            <h6 class="mb-0">{{totalUser}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                        {{!-- <i class="fa fa-chart-bar fa-3x text-primary"></i> --}}
+                        <i class="fa fa-boxes fa-3x text-primary"></i>
+
+                        <div class="ms-3">
+                            <p class="mb-2">Total Products</p>
+                            <h6 class="mb-0">{{productCount}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fas fa-shopping-cart fa-3x text-primary"></i>
+                        <div class="ms-3">
+                            <p class="mb-2">Total Orders</p>
+                            <h6 class="mb-0">{{totalOrder}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                        <i class=" fas fa-shopping-cart  fa-3x text-primary"></i>
+                        <div class="ms-3">
+                            <p class="mb-2">Order Deliverd</p>
+                            <h6 class="mb-0">{{delivered}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4 mt-2">
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fa fa-chart-line fa-3x text-primary"></i>
+                        <div class="ms-3">
+                            <p class="mb-2">Today Sale</p>
+                            <h6 class="mb-0">{{todaySales}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                        <div class="ms-3">
+                            <p class="mb-2">Total Sale</p>
+                            <h6 class="mb-0">{{totalSales}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fa fa-chart-area fa-3x text-primary"></i>
+                        <div class="ms-3">
+                            <p class="mb-2">Today Revenue</p>
+                            <h6 class="mb-0">Rs.{{todayRevenue}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                        <div class="ms-3">
+                            <p class="mb-2">Total Revenue</p>
+                            <h6 class="mb-0">Rs.{{totalRevenue}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sale & Revenue End -->
+
+
+        <!-- Sales Chart Start -->
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-light text-center rounded p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <h6 class="mb-0">Sales Details</h6>
+                           
+                        </div>
+                        {{!-- <canvas id="worldwide-sales"></canvas> --}}
+                        <canvas id="myChart" style="width:100%;max-width:600px;height:420px"></canvas>
+                        {{!-- <canvas id="myChart"></canvas> --}}
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-light text-center rounded p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <h6 class="mb-0">COD & Online</h6>
+                          
+                        </div>
+                        {{!-- <canvas id="salse-revenue"></canvas> --}}
+                        <canvas id="myChart1"  ></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sales Chart End -->
+
+
+        <!-- Recent Sales Start -->
+        <div class="container-fluid pt-4  mb-4">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Recent Sales</h6>
+
+                </div>
+                <div class="table-responsive">
+                    <table class="table text-start align-middle table-bordered table-hover mb-0">
+                        <thead>
+                            <tr class="text-dark">
+
+                                <th scope="col">Date</th>
+                                <th scope="col">User</th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Amount</th>
+                                <th >Payment Mode</th>
+                                {{!-- <th scope="col">Status</th> --}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each recentOrders}}
+                            <tr>
+
+                                <td>{{this.date}}</td>
+                                <td>{{this.user.name}}</td>
+                                <td><img width="50px " height="50px"
+                                        src="/images/productimg/{{this.product.productimage}}" alt=""><br>
+                                    {{this.product.productname}}</td>
+                                <td>{{this.product.productprice}}</td>
+                                <td>{{this.paymentDetails}}</td>
+                                {{!-- <td>{{this.orderStatus}}</td> --}}
+
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Recent Sales End -->
+
+
+
+
+
+
+    </div>
+    <!-- Content End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", charts, false)
+
+    async function charts() {
+        const res = await axios.get('/admin/revenueChart').then((e) => {
+            console.log(e.data.orders +"biihih")
+
+            var result = [];
+            e.data.orders.reduce(function (acc, curr) {
+                if (!acc[curr.date.slice(0, 10)]) {
+                    acc[curr.date.slice(0, 10)] = { date: curr.date.slice(0, 10), totalPrice: 0 };
+                    result.push(acc[curr.date.slice(0, 10)])
+                }
+                acc[curr.date.slice(0, 10)].totalPrice += parseInt(curr.totalPrice)
+
+                return acc
+            }, {});
+
+            console.log(result)
+
+            var xValues = [];
+            var yValues = [];
+
+            result.map((curr) => {
+                xValues.unshift(curr.date)
+                yValues.unshift(parseInt(curr.totalPrice))
+
+            })
+
+
+            console.log(xValues, yValues)
+
+            new Chart("myChart", {
+                type: "bar",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        label:'August',
+                        fill: false,
+                        lineTension: 0,
+                        backgroundColor:[ "#696CFF"],
+                        borderColor: "#696CFF",
+                        data: yValues
+                    }
+                    ]
+                },
+                options: {
+                    legend: { display: false },
+                    scales: {
+                        yAxes: [{ ticks: { min: 100, max: 500000 } }],
+                    }
+                }
+            });
+
+
+        })
+    }
+
+</script>
+
+<script>
+      document.addEventListener("DOMContentLoaded", charts, false)
+      async function charts() {
+        const res = await axios.get('/admin/revenueChart1').then((e) => {
+            console.log(e.data.orders.COD +'far')
+      
+
+    var ctx = document.getElementById('myChart1').getContext('2d');
+    
+    var myChart1 = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['COD', 'Razorpay'],
+            datasets: [{
+                label: 'payment methods',
+                data: [e.data.orders.COD,e.data.orders.online],
+                backgroundColor: [
+             
+                    'rgba(255,99,132,1)',
+                    'rgba(54,162,235,1)',
+                    'rgba(255,206,86,1)'
+                ],
+            }]
+
+        },
+        options: {
+            responsive: true,
+        },
+    })
+        })
+        }
+</script>

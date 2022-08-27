@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg  ftco_navbar bg-warning  ftco-navbar-light" id="ftco-navbar">
+	<div class="container">
+		<a class="navbar-brand" href="#">The Shoe Box</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+			aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="oi oi-menu"></span> Menu
+		</button>
+
+		<div class="collapse navbar-collapse" id="ftco-nav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">Catagories</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown04">
+						{{#each categories}}
+						<a class="dropdown-item" href="/viewproducts/{{this.categoryname}}">{{this.categoryname}}</a>
+						{{/each}}
+						<a class="dropdown-item" href="/viewproducts">All products</a>
+
+					</div>
+				</li>
+
+				{{#if session.userloggedIn}}
+				<li class="nav-item"><a href="/wishlist" class="nav-link">Wishlist</a></li>
+				<li class="nav-item"><a href="/cartpage" class="nav-link">My cart</a></li>
+
+				<li class="nav-item"><a href="/orders" class="nav-link">My Orders</a></li>
+				<li class="nav-item"><a href="/profile" class=" nav-link">{{session.user.name}}</a></li>
+				<li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+				{{else}}
+				<li class="nav-item"><a href="/login" class="nav-link">Wishlist</a></li>
+				<li class="nav-item"><a href="/login" class="nav-link">My cart</a></li>
+				<li class="nav-item"><a href="/login" class="nav-link">My Orders</a></li>
+				<li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+				<li class="nav-item"><a href="/signup" class="nav-link">Register</a></li>
+
+				{{/if}}
+			</ul>
+
+		</div>
+	</div>
+</nav>
+<section class="p-5">
+	<div class="container bg-light">
+		<div class="row justify-content-center">
+			<div class="col-xl-10 ftco-animate">
+				<form action="#" class="billing-form">
+					<h3 class="mb-4 billing-heading text-center">Address Details</h3>
+					<div class="col col-lg-12 col-md-12 mt-5 cart-wrap ftco-animate">
+						<div class="cart-total mb-3">
+						
+							<h6>ADDRESSES</h6>
+
+							{{#each address}}
+							<hr>
+							<p>Name : {{this.firstname}} {{this.lastname}}</p>
+							<p>Address : {{this.address1}},{{this.address2}},
+								{{this.district}},{{this.state}},{{this.country}}</p>
+
+							<p>Pin Code :{{this.pinCode}}</p>
+							<p>Mobile : {{this.number}}</p>
+
+							{{/each}}
+						</div>
+
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+</section> 

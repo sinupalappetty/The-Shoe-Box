@@ -1,0 +1,126 @@
+<div>
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-warning  ftco-navbar-light m-0" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="#">The Shoe Box</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">Catagories</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown04">
+							{{#each categories}}
+							<a class="dropdown-item" href="/viewproducts/{{this.categoryname}}">{{this.categoryname}}</a>
+							{{/each}}
+                            <a class="dropdown-item" href="/viewproducts">All products</a>
+						</div>
+					</li>
+					<li class="nav-item"><a href="/wishlist" class="nav-link">Wishlist</a></li>
+					<li class="nav-item"><a href="/cartpage" class="nav-link">My cart</a></li>
+					<li class="nav-item"><a href="/orders" class="nav-link">My Orders</a></li>
+
+					{{#if session.userloggedIn}}
+					<li class="nav-item"><a href="/profile" class=" nav-link">{{session.user.name}}</a></li>
+					<li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+					{{else}}
+					<li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+					<li class="nav-item"><a href="/signup" class="nav-link">Register</a></li>
+
+					{{/if}}
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+
+	<!-- END nav -->
+	<section class="vh-90 pb-5 " style="background-color:#dbcc8f">
+		<form action="/update-profile" method="post">
+			<div class="container pt-5">
+				<div class="main-body">
+					<div class="row">
+						<div class="col-lg-12 align-items-center text-center mt-2">
+							<h3>Update Your Profile</h3>
+
+						</div>
+
+						<div class="col-lg-4 mt-3">
+							<div class="card">
+								<div class="card-body">
+									<div class="d-flex flex-column align-items-center text-center">
+										<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin"
+											class="rounded-circle p-1 bg-primary" width="110">
+										<div class=" mt-2">
+											<h4>{{userData.name}}</h4>
+											<p class="text-secondary mb-1">{{userData.email}}</p>
+											<p class="text-muted font-size-sm">phone:+91 {{userData.mobile}}</p>
+											{{!-- <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+											--}}
+											<button class="btn btn-primary">Upload</button>
+
+											<button class="btn btn-outline-primary">Remove</button>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-8 mt-3">
+							<div class="card">
+								<div class="card-body m-2">
+									<div class="row mb-3">
+										<div class="col-sm-3">
+<input type="text" class="form-control" name="id" hidden value="{{userData._id}}">
+											<h6 class="mb-0">Full Name</h6>
+										</div>
+										<div class="col-sm-9 text-secondary">
+											<input type="text" class="form-control" name="name" value="{{userData.name}}">
+										</div>
+									</div>
+									<div class="row mb-3">
+										<div class="col-sm-3">
+											<h6 class="mb-0">Email</h6>
+										</div>
+										<div class="col-sm-9 text-secondary">
+											<input type="text" class="form-control" name="email" value="{{userData.email}}">
+										</div>
+									</div>
+									<div class="row mb-3">
+										<div class="col-sm-3">
+											<h6 class="mb-0">Phone</h6>
+										</div>
+										<div class="col-sm-9 text-secondary">
+											<input type="text" class="form-control" name="mobile" value="{{userData.mobile}}">
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-3"></div>
+										<div class="col-sm-4 text-secondary">
+											<button class="btn btn-primary profile-button" type="submit">Save
+												Profile</button>
+										</div>
+										{{!-- <div class="col-sm-1"></div>
+										<div class="col-sm-4 text-secondary">
+											<input type="button" class="btn btn-primary px-4" value="Change Password">
+										</div> --}}
+									</div>
+								</div>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+	</section>
+</div>
