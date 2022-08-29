@@ -72,8 +72,9 @@
             <table class="table mt-5 display" id="usersTable">
                 <thead>
                     <tr>
-                        <th width="10%">User</th>
+                        <td>No</td>
                         <th width="10%">Date</th>
+                        <th width="10%">User</th>
 
                         <th width="14%">Address</th>
                         <th>Total</th>
@@ -91,8 +92,9 @@
                     {{#each orderdetails}}
 
                     <tr>
-                        <td>{{this.user.name}}</td>
+                        <td>{{@index}}</td>
                         <td>{{this.date}}</td>
+                        <td>{{this.user.name}}</td>
 
                         <td>{{this.deliveryDetails.address1}}<br>
                             {{this.deliveryDetails.address2}}<br>

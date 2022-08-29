@@ -315,7 +315,7 @@ module.exports = {
     },
     getAllOrders:()=>{
         return new Promise(async(resolve,reject)=>{
-            let orderdetails= await orderModel.find({}).sort({time:-1,date:-1}).populate('user').populate('deliveryDetails').populate('orderItems.product').lean()
+            let orderdetails= await orderModel.find({}).sort({date:-1,time:-1}).populate('user').populate('deliveryDetails').populate('orderItems.product').lean()
             console.log(JSON.stringify(orderdetails) +"bdbsd")
             resolve(orderdetails) 
         })

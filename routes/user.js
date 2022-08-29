@@ -309,13 +309,15 @@ router.post('/addToWishList/:id', isLogin, (req, res) => {
 router.get('/wishlist', isLogin, (req, res) => {
   let session = req.session
   userHelpers.wishListProducts(req.session.user._id).then((response) => {
+    adminHelpers.getAllCategory().then((categories) => {
     if (response.notEmpty) {
       let wishListItems = response.products.wishListItems
-      res.render('user/wishlist', { user: true, session, response, wishListItems })
+      res.render('user/wishlist', { user: true, session, response, wishListItems,categories })
     } else {
-      res.render('user/wishlist', { user: true, session, response })
+      res.render('user/wishlist', { user: true, session, response ,categories})
     }
   })
+})
 })
 
 router.get('/checkWishlist/:id', isLogin, (req, res) => {
