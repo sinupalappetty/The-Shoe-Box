@@ -1,7 +1,7 @@
 var express = require('express');
 const async = require('hbs/lib/async');
 var router = express.Router();
-const Admin = require('../models/adminModel');
+const Admin = require('../Models/adminModel');
 const adminHelpers = require('../helpers/admin-helpers')
 const multer = require('../helpers/multer');
 
