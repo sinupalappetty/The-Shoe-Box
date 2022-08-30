@@ -597,7 +597,7 @@ let userhelper= {
       },
       getUserOrders:(userId)=>{
         return new Promise(async (resolve, reject)=>{
-            let userOrder = await orderModel.find({User:userId}).sort({time:-1}).populate('orderItems.product').populate('deliveryDetails').lean()
+            let userOrder = await orderModel.find({user:userId}).sort({time:-1}).populate('orderItems.product').populate('deliveryDetails').lean()
              resolve(userOrder)
         })
     }
