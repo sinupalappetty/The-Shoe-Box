@@ -1,41 +1,43 @@
- <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-warning  ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="#">The Shoe Box</a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-warning  ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand p-2" href="#">The Shoe Box</a>
+        <button class="navbar-toggler p-3" type="button" data-toggle="collapse" data-target="#ftco-nav"
+            aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-	          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catagories</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	{{#each categories}}
-							<a class="dropdown-item" href="/viewproducts/{{this.categoryname}}">{{this.categoryname}}</a>
-							{{/each}}
-                            <a class="dropdown-item" href="/viewproducts">All products</a>
-              </div>
-            </li>
-	          <li class="nav-item"><a href="/wishlist" class="nav-link">Wishlist</a></li>
-	          <li class="nav-item"><a href="/cartpage" class="nav-link">My cart</a></li>
-	          <li class="nav-item"><a href="/orders" class="nav-link">My Orders</a></li>
-	        
-               {{#if session.userloggedIn}}
-			  <li class="nav-item"><a href="/profile" class=" nav-link">{{session.user.name}}</a></li> 
-			   <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li> 
-			   {{else}}
-			    <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
-				 <li class="nav-item"><a href="/signup" class="nav-link">Register</a></li>
-			   
-			   {{/if}}
-	        </ul>
-			
-	      </div>
-	    </div>
-	  </nav>
-    <!-- END nav -->
-<section class=" vh-100 mt-5" >
+        <div class="collapse navbar-collapse pl-3" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Catagories</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        {{#each categories}}
+                        <a class="dropdown-item" href="/viewproducts/{{this.categoryname}}">{{this.categoryname}}</a>
+                        {{/each}}
+                        <a class="dropdown-item" href="/viewproducts">All products</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="/wishlist" class="nav-link">Wishlist</a></li>
+                <li class="nav-item"><a href="/cartpage" class="nav-link">My cart</a></li>
+                <li class="nav-item"><a href="/orders" class="nav-link">My Orders</a></li>
+
+                {{#if session.userloggedIn}}
+                <li class="nav-item"><a href="/profile" class=" nav-link">{{session.user.name}}</a></li>
+                <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+                {{else}}
+                <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="/signup" class="nav-link">Register</a></li>
+
+                {{/if}}
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<!-- END nav -->
+<section class=" pt-5 " style="background-color:#dbcc8f">
     <div class="container ">
         <div class="row ">
             <div class="col-lg-12  mb-sm-5">
@@ -50,14 +52,20 @@
                                     <h4>Your Profile</h4>
                                 </div>
                                 <ul class="list-unstyled mb-1-9 mt-5">
-                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Name:</span>{{userData.name}}</li>
-                                    {{!-- <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Experience:</span> 10 Years</li> --}}
-                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email:</span>{{userData.email}}</li>
-                                    {{!-- <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Website:</span> www.example.com</li> --}}
-                                    <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span>{{userData.mobile}}</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span
+                                            class="display-26 text-secondary me-2 font-weight-600">Name:</span>{{userData.name}}
+                                    </li>
+                                 
+                                    <li class="mb-2 mb-xl-3 display-28"><span
+                                            class="display-26 text-secondary me-2 font-weight-600">Email:</span>{{userData.email}}
+                                    </li>
+                                   
+                                    <li class="display-28"><span
+                                            class="display-26 text-secondary me-2 font-weight-600">Phone:</span>{{userData.mobile}}
+                                    </li>
                                 </ul>
-                                <a type="button"  href="/update-profile" class="btn h4 bg-warning">Edit Profile</a>
-                                <a type="button"  href="/orders" class="btn h4 bg-warning ">Orders</a>
+                                <a type="button" href="/update-profile" class="btn h4 bg-warning">Edit Profile</a>
+                                <a type="button" href="/orders" class="btn h4 bg-warning ">Orders</a>
                                 <a type="button" href="/viewaddress" class="btn h4  bg-warning  ">Address</a>
                             </div>
                         </div>
@@ -65,4 +73,85 @@
                 </div>
             </div>
 
-            </section>
+</section>
+
+
+<footer class="ftco-footer ftco-section ">
+    <div class="container">
+        <div class="row">
+            <div class="mouse">
+                <a href="#" class="mouse-icon">
+                    <div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+                </a>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">The Shoe Box</h2>
+                    <p>The best online shopping site for Shoes.Collection of branded products with affordable price.</p>
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                        <li class="ftco-animate"><a href="https://wa.me/+917560932134"><span
+                                    class="icon-whatsapp"></span></a></li>
+                        <li class="ftco-animate"><a href="https://www.facebook.com/profile.php?id=100006181519453"><span
+                                    class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="https://instagram.com/sinu_adil._?igshid=YmMyMTA2M2Y="><span
+                                    class="icon-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4 ml-md-5">
+                    <h2 class="ftco-heading-2">Menu</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="/viewproducts" class="py-2 d-block">Shop</a></li>
+                        <li><a href="/about" class="py-2 d-block">About</a></li>
+
+                        <li><a href="/contactus" class="py-2 d-block">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Have a Questions?</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><a href="https://goo.gl/maps/3JQbiZ1JBs9exBHR8"><span
+                                        class="icon icon-map-marker"></span><span class="text">6462+CPX, Gudalur -
+                                        Nilumbur - Kozhikode Rd, Pannipara, Perakamanna, Kerala 676541</span></a></li>
+                            <li><a href="tel://+917560932134"><span class="icon icon-phone"></span><span
+                                        class="text">+91
+                                        7560932134</span></a></li>
+                            <li><a href="mailto:sinupalappetty25@gmail.com"><span
+                                        class="icon icon-envelope"></span><span
+                                        class="text">sinupalappetty25@gmail.com</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+
+                <p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> All rights reserved.
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+            stroke="#F96D00" />
+    </svg></div>
+
+</div>

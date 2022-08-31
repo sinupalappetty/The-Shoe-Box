@@ -86,6 +86,34 @@ router.get('/signup', (req, res, next) => {
   }
 })
 
+router.get('/about', (req, res) => {
+  adminHelpers.getAllCategory().then((categories) => {
+    if (req.session.userloggedIn) {
+    let session = req.session
+
+      res.render('user/about', { user: true, session,categories })
+    } else {
+      res.render('user/about',{categories})
+    }
+  })
+})
+
+
+  router.get('/contactus', (req, res) => {
+    adminHelpers.getAllCategory().then((categories) => {
+      if (req.session.userloggedIn) {
+      let session = req.session
+  
+        res.render('user/contactus', { user: true, session,categories })
+      } else {
+        res.render('user/contactus',{categories})
+      }
+    })
+  })
+  
+
+
+
 router.post('/signup', (req, res) => {
   console.log(req.body)
   auth.userCheck(req.body.email).then((status) => {
@@ -486,21 +514,8 @@ router.get('/cancel-order/:id', (req, res) => {
     res.redirect('/orders')
   })
 })
-// router.get('/view-singleorder', (req, res) => {
-//   if (req.session.userloggedIn) {
-//     let session = req.session
-//     let userData = req.session.user
-//     console.log(userData);
-//     adminHelpers.getAllCategory().then((categories) => {
 
-//       res.render('user/view-singleorder', { userData, users: true, session, categories })
-//     })
 
-//   } else {
-//     let session = req.session.check
-//     res.redirect('/');
-//   }
-// })
 
 router.get('/view-singleorder/:id', (req, res) => {
   if (req.session.userloggedIn) {
@@ -518,6 +533,7 @@ router.get('/view-singleorder/:id', (req, res) => {
     res.redirect('/');
   }
 })
+
 
 
 router.get('/logout', (req, res) => {

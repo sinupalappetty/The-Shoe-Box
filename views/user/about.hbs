@@ -1,0 +1,175 @@
+<section>
+    <nav class="navbar navbar-expand-lg  ftco_navbar bg-warning  ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand p-2" href="#">The Shoe Box</a>
+            <button class="navbar-toggler p-3" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span>Menu
+            </button>
+
+            <div class="collapse navbar-collapse pl-3" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Catagories</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                            {{#each categories}}
+                            <a class="dropdown-item"
+                                href="/viewproducts/{{this.categoryname}}">{{this.categoryname}}</a>
+                            {{/each}}
+                            <a class="dropdown-item" href="/viewproducts">All products</a>
+                        </div>
+                    </li>
+
+                    {{#if session.userloggedIn}}
+                    <li class="nav-item"><a href="/wishlist" class="nav-link">Wishlist</a></li>
+                    <li class="nav-item"><a href="/cartpage" class="nav-link d-flex">My cart</a></li>
+
+                    <li class="nav-item"><a href="/orders" class="nav-link">My Orders</a></li>
+                    <li class="nav-item"><a href="/profile" class=" nav-link">{{session.user.name}}</a></li>
+                    <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+                    {{else}}
+                    <li class="nav-item"><a href="/login" class="nav-link">Wishlist</a></li>
+                    <li class="nav-item"><a href="/login" class="nav-link">My cart</a></li>
+                    <li class="nav-item"><a href="/login" class="nav-link">My Orders</a></li>
+                    <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+                    <li class="nav-item"><a href="/signup" class="nav-link">Register</a></li>
+
+                    {{/if}}
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+</section>
+<div class="hero-wrap hero-bread" style="background-image: url('user-assets/images/bg_6.jpg');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>About</span></p>
+                <h1 class="mb-0 bread">About Us</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center"
+                style="background-image: url(user-assets/images/about1.jpg);">
+
+            </div>
+            <div class="col-md-7 py-md-5 wrap-about pb-md-5 ftco-animate">
+
+                <div class="pb-md-5 pb-4">
+                    <p class="h5"> No One Know Shoes
+                        Like We Do…</p>
+                    <p>It was 4 years ago.. We had a dream to start a little footwear store and he put all Our life
+                        savings into making it a reality. As time passed this little store The Shoe Box, grew larger and
+                        larger.</p>
+                    <p>And soon it came to be recognised as the footwear destination for quality, value and impeccable
+                        style. Our dream flourished, as Our family of entrepreneurs worked hard and went on to position
+                        store as the number one footwear store in India.</p>
+                    <p><a href="/viewproducts" class="btn btn-primary">Shop now</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-no-pb ftco-no-pt bg-light mt-5 ">
+    <div class="container">
+        <div class="row">
+           
+            <div class="col-md-7 py-md-5 wrap-about pb-md-5 ftco-animate justify-content-center m-auto align-items-center">
+
+                <div class="pb-md-5 pb-4 pt-5 px-5 font-italic">
+                   
+                    <p >Shoes are always the most important thing for me because they are who you are. They change the way you walk, the way you move.</p>
+                    <p>– Tom Ford</p>
+                    
+                </div>
+            </div>
+             <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center"
+                style="background-image: url(user-assets/images/about2.webp);">
+
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="ftco-footer ftco-section mt-2">
+	<div class="container">
+		<div class="row">
+			<div class="mouse">
+				<a href="#" class="mouse-icon">
+					<div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+				</a>
+			</div>
+		</div>
+		<div class="row ">
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4">
+					<h2 class="ftco-heading-2">The Shoe Box</h2>
+					<p>The best online shopping site for Shoes.Collection of branded products with affordable price.</p>
+					<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+						<li class="ftco-animate"><a href="https://wa.me/+917560932134"><span class="icon-whatsapp"></span></a></li>
+						<li class="ftco-animate"><a href="https://www.facebook.com/profile.php?id=100006181519453"><span class="icon-facebook"></span></a></li>
+						<li class="ftco-animate"><a href="https://instagram.com/sinu_adil._?igshid=YmMyMTA2M2Y="><span class="icon-instagram"></span></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4 ml-md-5">
+					<h2 class="ftco-heading-2">Menu</h2>
+					<ul class="list-unstyled">
+						<li><a href="/viewproducts" class="py-2 d-block">Shop</a></li>
+						<li><a href="/about" class="py-2 d-block">About</a></li>
+						
+						<li><a href="/contactus" class="py-2 d-block">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4">
+					<h2 class="ftco-heading-2">Have a Questions?</h2>
+					<div class="block-23 mb-3">
+						<ul>
+							<li><a href="https://goo.gl/maps/3JQbiZ1JBs9exBHR8"><span class="icon icon-map-marker"></span><span class="text">6462+CPX, Gudalur - Nilumbur - Kozhikode Rd, Pannipara, Perakamanna, Kerala 676541</span></a></li>
+							<li><a  href="tel://+917560932134"><span class="icon icon-phone"></span><span class="text">+91
+										7560932134</span></a></li>
+							<li><a href="mailto:sinupalappetty25@gmail.com" ><span class="icon icon-envelope"></span><span
+										class="text">sinupalappetty25@gmail.com</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 text-center">
+
+				<p>
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					Copyright &copy;
+					<script>document.write(new Date().getFullYear());</script> All rights reserved.
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+		<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+		<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+			stroke="#F96D00" />
+	</svg></div>
+
+</div>

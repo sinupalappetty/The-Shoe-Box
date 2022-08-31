@@ -446,7 +446,8 @@ pre {
 
 .pre-scrollable {
   max-height: 340px;
-  overflow-y: scroll; }
+  overflow-y: scroll; 
+}
 
 .container {
   width: 100%;
@@ -5087,11 +5088,11 @@ a.close.disabled {
   color: #212529; }
 
 .carousel {
-  position: relative; }
+  position: relative;
+  
+ }
 
-.carousel.pointer-event {
-  -ms-touch-action: pan-y;
-  touch-action: pan-y; }
+
 
 .carousel-inner {
   position: relative;
