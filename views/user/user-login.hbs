@@ -1,9 +1,9 @@
  <section class="">
- <div class="container pb-5 vh-120 " style="border-radius: 40px;background-color:#dbcc8f" id="mmm">
+ <div class="container vh-100" style="border-radius: 40px;background-color:#dbcc8f" id="mmm">
     <div class="row justify-content-center pt-4 log">
         <div class="col-8 col-md-6 col-lg-5 col-xl-4">
-            <p class="text-center h2 fw-bold mb-1 mx-1 mx-md-4 ">Login to Shoe Box</p>
-
+            <p class="text-center h2 fw-bold mb-1 mx-1 mx-md-4 ">Welcome Back!</p>
+             <p class="text-center mb-1 mx-1 mx-md-4 ">Login To Continue..</p>
             <form action="/login" id="myloginform" method="post">
                {{#if loginerr}}
                       <p class="text-danger">{{loginerr}}</p>
@@ -32,17 +32,17 @@
                 <div class="row">
                     <button type="submit" class="btn btn-dark col-3 mx-auto mt-2">login</button>
                 </div>
-                <br>
-                <div class="text-center">
+                {{!-- <br> --}}
+                <div class="text-center mt-1">
                     <a href="/signup">Create new account</a>
                 </div>
-                <div class="justify-content-center  divider d-flex align-items-center">
-                    <p class="text-center fw-bold pt-1">OR</p>
+                <div class="justify-content-center  divider d-flex align-items-center mt-1">
+                    <p class="text-center fw-bold">OR</p>
                 </div>
                 
             </form>
            <form id="myotplogin" action="/loginotp" method="post">
-            <h6 class="my-3 justify-content-center text-center">Login with OTP</h6>
+            <h6 class=" justify-content-center text-center">Login with OTP</h6>
            <div class="form-outline ">
                     <label class="form-label" for="form2Example1">Enter Mobile Number</label>
                     <input type="text" id="form2Example1" class="form-control" name="mobile">
