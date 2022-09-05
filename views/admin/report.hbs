@@ -98,7 +98,7 @@
             <thead>
                 <h3>Delivered Orders</h3>
                 <tr>
-                    
+                         <th scope="col">No</th>
                         <th width="10%" scope="col">Users</th>
                         <th width="10%" scope="col">Date</th>
                         <th scope="col">Products</th>
@@ -121,6 +121,7 @@
                 {{#each deliveredOrder}}
 
                 <tr>
+                    <td>{{@index}}</td>
                     <td>{{this.user.name}}</td>
                     <td>{{this.date}}</td>
                     <td> {{#each this.orderItems}} {{this.product.productname}} <br>{{/each}}</td>
