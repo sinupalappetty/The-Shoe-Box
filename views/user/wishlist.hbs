@@ -56,7 +56,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 ftco-animate">
-                {{!-- <div class="cart-list"> --}}
+                <div class="cart-list">
                     <table class="table">
                         <thead class="thead-primary">
                             <tr class="text-center">
@@ -109,8 +109,8 @@
 
                         </tbody>
                     </table>
-                    {{!--
-                </div> --}}
+            
+                </div> 
             </div>
         </div>
 
@@ -211,9 +211,9 @@
     <script>
         const removeWishListItem = async (id) => {
             try {
-                const res = await axios.post(`/removeWishListItem/${id}`, {}).then((e) => {
+                const res = await axios.post(`/removeWishListItem/${id}`, {}).then(async (e) => {
                     console.log(e.data.response)
-                    swal('Item Removed from the Wishlist')
+                   await swal('Item Removed from the Wishlist')
                     window.location.reload()
                 })
             } catch (err) {

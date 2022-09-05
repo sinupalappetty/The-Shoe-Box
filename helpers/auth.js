@@ -4,7 +4,8 @@ const UserModel = require('../Models/userModel');
 const env = require('dotenv').config()
 const accountSid = process.env.accountSID
 const authToken = process.env.authToken
-const client = require('twilio')(accountSid, authToken);
+const serviceID = process.env.serviceID
+const client = require('twilio')(accountSid, authToken,serviceID);
 
 module.exports={
     userCheck:(email)=>{
@@ -43,7 +44,7 @@ module.exports={
 sendOtp: (mobile) => {
                     console.log(mobile)
                     return new Promise((resolve, reject) => {
-                        client.verify.v2.services(process.env.serviceID)
+                        client.verify.v2.services(serviceID)
                             .verifications
                             .create({ to: '+91' + mobile, channel: 'sms' })
                             .then(verification => {
@@ -56,7 +57,7 @@ sendOtp: (mobile) => {
                 },
                 verifyOtp: (otp, mobile) => {
                     return new Promise((resolve, reject) => {
-                        client.verify.v2.services(process.env.serviceID)
+                        client.verify.v2.services(serviceID)
                             .verificationChecks
                             .create({ to: '+91' + mobile, code: otp })
                             .then((verification_check) => {
